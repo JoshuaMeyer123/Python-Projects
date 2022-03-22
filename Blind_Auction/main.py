@@ -16,9 +16,10 @@ while not end_bidding:
     bidding[name] = bid_price
     if more_bidders == "no":
         end_bidding = True
+        clear_console()
 
     elif more_bidders == "yes":
-        clear_console()
+        clear_console()     # clear console so the next bidder doesn't see the bid of the previous bidder
 
 top_bid = 0
 top_bidder = ""
@@ -28,4 +29,4 @@ for name in bidding:
         top_bid = bidding[name]
         top_bidder = name
 
-print(f"{top_bidder} had the highest bid and is the winner!")
+print(f"!!!{top_bidder} had the highest bid and is the winner!!!")
