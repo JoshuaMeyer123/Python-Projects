@@ -1,7 +1,6 @@
 from game_data import data
 from art import logo, vs
 import random
-#from replit import clear
 
 # def clear_console():
 #     os.system('cls')
@@ -13,7 +12,7 @@ def choice():
     data.remove(new_choice)
     return new_choice
 
-
+# Compare the follower count of the chosen account against the other account
 def compare(higher, lower):
     higher_followers = higher.get('follower_count')
     lower_followers = int(lower.get('follower_count'))
@@ -29,7 +28,7 @@ win = 1
 score = 0
 choice_B = 0
 while win:
-    #clear_console()
+    #clear()
     # Introduction
     print(logo)
     if score > 0:
@@ -50,6 +49,7 @@ while win:
         win = compare(choice_B, choice_A)
 
     if win:
+        # keep score
         score += 1
     else:
         print("Better luck next time")
