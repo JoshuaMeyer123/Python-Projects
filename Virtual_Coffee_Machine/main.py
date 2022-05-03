@@ -1,7 +1,8 @@
 # Import section
+from art import MENU
 
 
-# Menu
+# Available types of coffee
 menu = {
     "espresso": {
         "ingredients": {
@@ -29,7 +30,7 @@ menu = {
     }
 }
 
-
+# Resources in Coffee Machine
 resources = {
     "water": 300,
     "milk": 200,
@@ -51,7 +52,7 @@ def report():
     print(f"Water: {resources.get('water')}ml")
     print(f"Milk: {resources.get('milk')}ml")
     print(f"Coffee: {resources.get('coffee')}g")
-    print("Money: ${:0.2f}".format(resources.get('money')))
+    print("Money: R{:0.2f}".format(resources.get('money')))
 
 
 # TODO: 3. Check if resources are sufficient
@@ -104,14 +105,18 @@ def brew_coffee(coffee_request):
 
 
 # TODO: 7. Compile everything to run as desired
+print(MENU)
 more_coffee = True
 while more_coffee:
     coffee_type = coffee_choice()
-    if coffee_type == 'report':
+    if coffee_type == 'menu':
+        print(MENU)
+    elif coffee_type == 'report':
         report()
     elif coffee_type == 'off':
+        print("Coffee Machine has turned off")
         more_coffee = False
-    elif coffee_type == 'espresso' or 'latte' or 'cappuccino':
+    elif coffee_type in ('espresso', 'latte', 'cappuccino'):
         if resource_check(coffee_type):
             transaction(coffee_type)
             brew_coffee(coffee_type)
